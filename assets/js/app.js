@@ -18,7 +18,7 @@ var config = {
     //Grab User Input
     var trainName = $("#train-name-input").val().trim();
     var trainDest = $("#destination-input").val().trim();
-    var firstTrain = moment($("#start-input").val().trim(),"HH:mm").format("X");
+    var firstTrain = moment($("#time-input").val().trim(),"HH:mm").format("X");
     var trainFreq = $("#freq-input").val().trim();
       
     
@@ -89,10 +89,11 @@ var config = {
 
     // Next Train
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+    console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm"));
 
     $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDest + "</td><td>" +
-    tainFreq + "</td><td>" + "minutes" + "</td><td>" + nextTrain + "</td><td>" + tMinutesTillTrain + "</td><td>");
+    trainFreq + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + tMinutesTillTrain + "</td><td>");
+
 
 
   });
